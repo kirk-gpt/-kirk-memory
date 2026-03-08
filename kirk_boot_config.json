@@ -1,0 +1,60 @@
+{
+  "boot_extension": "kirk_boot_config",
+
+  "load_on_boot": true,
+
+  "systems": {
+    "huggingface_monitor": {
+      "script": "HF_KNOWLEDGE_BASE_AND_MONITOR.py",
+      "enabled": true,
+      "tasks": [
+        "fetch_trending_models",
+        "fetch_new_models",
+        "fetch_new_datasets",
+        "fetch_spaces",
+        "fetch_blog_posts"
+      ],
+      "output_state_file": "hf_knowledge_state.json"
+    },
+
+    "huggingface_capabilities": {
+      "script": "HF_CAPABILITIES_SUITE.py",
+      "enabled": true,
+      "capabilities": [
+        "trend_report",
+        "new_report",
+        "spaces_report",
+        "blog_report",
+        "scout",
+        "license_audit",
+        "tag_audit",
+        "repo_meta",
+        "repo_snapshot",
+        "inference_call",
+        "watchlist_poll",
+        "opportunity_score"
+      ]
+    }
+  },
+
+  "tool_factory_pipeline": [
+    "monitor_huggingface",
+    "update_knowledge_state",
+    "analyze_model_opportunities",
+    "generate_ai_tools",
+    "deploy_to_huggingface_spaces",
+    "store_results_in_memory"
+  ],
+
+  "data_sources": [
+    "huggingface_models",
+    "huggingface_datasets",
+    "huggingface_spaces",
+    "huggingface_blog"
+  ],
+
+  "memory_targets": {
+    "knowledge_state": "hf_knowledge_state.json",
+    "system_memory": "kirk_memory.json"
+  }
+}

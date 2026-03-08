@@ -1,0 +1,17 @@
+{
+  "system": "kirk-ai",
+  "owner": "kirk-gpt",
+  "memory_version": 1,
+  "boot": {
+    "initialized": false,
+    "auto_initialize_memory": true,
+    "create_required_files": true
+  },
+  "modules": [
+    "discovery",
+    "tool_generation",
+    "deployment",
+    "metrics",
+    "learning"
+  ]
+}

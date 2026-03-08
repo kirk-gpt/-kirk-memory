@@ -1,0 +1,87 @@
+{
+  "system": {
+    "name": "Kirk AI Tool Factory",
+    "owner": "kirk-gpt",
+    "version": 1,
+    "description": "Autonomous system for discovering AI models, generating tools, deploying them, and learning from usage."
+  },
+
+  "boot": {
+    "initialized": false,
+    "auto_initialize_memory": true,
+    "auto_repair_memory": true,
+    "auto_expand_memory": true
+  },
+
+  "memory": {
+    "type": "github_repository",
+    "repo": "kirk-gpt/kirk-memory",
+    "structure": "self-expanding",
+    "root_files": [
+      "memory.json"
+    ],
+    "directories": {
+      "memory": "/memory",
+      "logs": "/logs",
+      "tools": "/tools",
+      "datasets": "/datasets",
+      "research": "/research"
+    }
+  },
+
+  "modules": {
+    "discovery": {
+      "enabled": true,
+      "sources": [
+        "huggingface_models",
+        "huggingface_spaces",
+        "github_ai_projects"
+      ]
+    },
+
+    "tool_generation": {
+      "enabled": true,
+      "frameworks": [
+        "gradio",
+        "python",
+        "transformers"
+      ]
+    },
+
+    "deployment": {
+      "enabled": true,
+      "targets": [
+        "huggingface_spaces"
+      ]
+    },
+
+    "metrics": {
+      "enabled": true
+    },
+
+    "learning": {
+      "enabled": true
+    }
+  },
+
+  "memory_files_to_create_on_first_boot": [
+    "memory/models.json",
+    "memory/tools.json",
+    "memory/deployments.json",
+    "memory/trends.json",
+    "memory/opportunities.json",
+    "logs/system_logs.json",
+    "logs/errors.json",
+    "logs/actions.json",
+    "research/model_analysis.json",
+    "research/problem_signals.json"
+  ],
+
+  "first_boot_tasks": [
+    "create_memory_directories",
+    "create_memory_files",
+    "verify_repository_access",
+    "initialize_system_logs",
+    "set_initialized_true"
+  ]
+}

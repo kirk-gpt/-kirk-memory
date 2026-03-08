@@ -1,0 +1,44 @@
+{
+  "boot_loader": {
+    "version": 1,
+    "description": "Kirk dynamic boot loader",
+
+    "scan_repository_for_configs": true,
+
+    "config_file_patterns": [
+      "kirk_boot_config.json",
+      "*_config.json",
+      "*_module.json",
+      "*_system.json"
+    ],
+
+    "boot_process": [
+      "load_core_memory",
+      "scan_repo_for_config_files",
+      "load_detected_configs",
+      "initialize_systems",
+      "run_enabled_modules",
+      "start_kirk_operations"
+    ],
+
+    "auto_initialize_missing_memory": true,
+
+    "auto_create_directories": [
+      "memory",
+      "logs",
+      "research",
+      "tools",
+      "datasets"
+    ],
+
+    "auto_create_files": [
+      "memory/models.json",
+      "memory/tools.json",
+      "memory/deployments.json",
+      "logs/system_logs.json",
+      "logs/errors.json",
+      "research/model_analysis.json",
+      "research/opportunities.json"
+    ]
+  }
+}
